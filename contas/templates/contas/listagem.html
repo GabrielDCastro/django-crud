@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ocorrências</title>
+</head>
+<body>
+
+    <h2>Listagem</h2>
+
+    <ul>
+        {% for transacao in transacoes %}
+        <li>{{ transacao.descricao }} - {{transacao.categoria}} - {{ transacao.data }} - {{transacao.valor}}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
