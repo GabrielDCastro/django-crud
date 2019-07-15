@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import transacao
+from .models import Transacao
 
 class TransacaoForm(ModelForm):
     class Meta:
-        model = transacao
+        model = Transacao
         fields = ['data', 'descricao', 'valor', 'observacoes', 'categoria']

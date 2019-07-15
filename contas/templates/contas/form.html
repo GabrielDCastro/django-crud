@@ -15,7 +15,7 @@
 
     <button type="submit">Salvar</button>
     {% if transacao %}
-        <a href="{% url 'url_delete' obj.id %}">Remover</a>
+        <a href="{% url 'url_delete' transacao.id %}">Remover</a>
     {% endif %}
 </form>
 

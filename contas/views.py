@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import transacao
+from .models import Transacao
 from .form import TransacaoForm
 import datetime
 
 def listagem(request):
     data={}
-    data['transacoes'] = transacao.objects.all()
+    data['transacoes'] = Transacao.objects.all()
     return render(request, 'contas/listagem.html', data)
 
 def nova_transacao (request):
@@ -21,18 +21,18 @@ def nova_transacao (request):
 
 def update(request, pk):
     data={}
-    Transacao = transacao.objects.get(pk=pk)
-    form = TransacaoForm(request.POST or None, instance=Transacao)
+    transacao = Transacao.objects.get(pk=pk)
+    form = TransacaoForm(request.POST or None, instance=transacao)
     if form.is_valid():
         form.save()
         return redirect('url_listagem')
 
 
     data['form'] = form
-    data['obj']=Transacao
+    data['transacao']=transacao
     return render(request, 'contas/form.html',  data)
 
 def delete(request, pk):
-    Transacao =TransacaoForm.objects.get(pk=pk)
-    Transacao.delete()
+    transacao =Transacao.objects.get(pk=pk)
+    transacao.delete()
     return redirect('url_listagem')
